@@ -1,0 +1,4 @@
+(executable
+ (public_name chatserver)
+ (name main)
+ (libraries lwt lwt.unix logs logs.lwt Stdlib str unix))

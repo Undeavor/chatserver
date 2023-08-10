@@ -1,0 +1,8 @@
+lib: [
+  "_build/install/default/lib/chatserver/META"
+  "_build/install/default/lib/chatserver/dune-package"
+  "_build/install/default/lib/chatserver/opam"
+]
+bin: [
+  "_build/install/default/bin/chatserver"
+]
