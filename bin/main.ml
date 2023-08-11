@@ -58,7 +58,7 @@ let trim_id str =
 
 let handle_message msg =
     match msg with
-    | "cmd" -> "msg MESSAGE : release a msg in da hood \nmsg USERNAME PASSWORD MESSAGE : release an identified message but if you miss your password, you lose your account\nver : verify the counter \ninc : increase the counter \nread : print all the messages from the starting of the server"
+    | "cmd" -> "msg USERNAME PASSWORD MESSAGE : release an identified message but if you miss your password, your terminal session crashes\nver : verify the counter \ninc : increase the counter \nread : print all the messages from the starting of the server"
     | "ver" -> string_of_int !counter
     | "read"  -> let formatted_string = String.concat "\n" !message in formatted_string
     | "inc"  -> counter := !counter + 1; "Counter has been incremented"
@@ -93,7 +93,8 @@ let rec handle_connection ic oc () =
                       current_time.tm_hour current_time.tm_min current_time.tm_sec
                       (current_time.tm_mon + 1) current_time.tm_mday (current_time.tm_year + 1900) in
                 let reversed_list = List.rev !message in
-                message := (formatted_time ^ " " ^ "[" ^ final_id ^ "]" ^ " " ^ final_msg) :: reversed_list;
+                let reversed_message = (formatted_time ^ " " ^ "[" ^ final_id ^ "]" ^ " " ^ final_msg) :: reversed_list in
+                message := List.rev reversed_message;
                 Lwt_io.write_line oc "message released in da hood" >>= handle_connection ic oc
             else
                 let reply = handle_message msg in
