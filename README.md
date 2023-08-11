@@ -27,7 +27,6 @@ So, it has basic commands and works via telnet in localhost and port 9000 ( you 
 #Commands : all have a confirmation message
 - inc : increase the counter (to verify if the server is running properly)
 - ver : verify the counter
-- msg USERNAME PASSWORD MESSAGE : release an identified message but if you miss your id/password, you lose your account
+- msg USERNAME PASSWORD MESSAGE : release an identified message but if you miss your id/password, the terminal session you are in crashes
 - read : print all the messages from the starting of the server
-- msg MESSAGE : release a msg in da hood (currently not working)
 If a command doesn't respond, your session has crashed so open another terminal window and try with a different command.
