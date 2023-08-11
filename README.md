@@ -16,7 +16,7 @@ So, it has basic commands and works via telnet in localhost and port 9000 ( you 
 - "nano bin/main.ml" > copy/paste the code inside bin/dune here
 
 ### ID/PASSWD
--inside of the main.ml code, they are static so you have to add them before 
+-inside of the main.ml code, they are static so you have to add them before running the server
 
 ### Compile & Run
 - don't forget to run "eval $(opam env)" before using any command with opam/dune
